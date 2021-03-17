@@ -1,12 +1,3 @@
-// fetch('http://localhost:3000/weather?address=Boston').then((response) => {
-//     response.json().then((data) => {
-//         if(data.error) {
-//             return console.log(data.error)
-//         }
-//         console.log(data)
-//     })
-// })
-
 const form = document.querySelector('form')
 const search = document.querySelector('input')
 const msg = document.querySelector('#msg')
@@ -17,7 +8,7 @@ form.addEventListener('submit', (e) => {
 
     const place = search.value
     msg.textContent = 'Loading...'
-    fetch('http://localhost:3000/weather?address=' + place).then((response) => {
+    fetch('/weather?address=' + place).then((response) => {
     response.json().then((data) => {
         if(data.error) {
             return msg.textContent = data.error
